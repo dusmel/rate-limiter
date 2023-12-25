@@ -9,6 +9,9 @@ import config from './config.js';
 import logger from './helpers/logger.js';
 import emailRouter from './api/v1/email/email.router.js';
 import { rateLimiterUsingThirdParty } from './middlewares/rateLimiter.js';
+import { checkApiKey } from './middlewares/checkApi.js';
+import { customRedisRateLimiterTokenBucket } from './middlewares/customRateLimiter-TokenBucket.js';
+import { customRedisRateLimiterSlidingWindow } from './middlewares/customRedisRateLimiter-SlidingWindow.js';
 
 // Essential globals
 const app = express();
@@ -29,8 +32,10 @@ app.use(
 );
 app.use(jsend.middleware);
 
-// use get emails router
-app.use('/api/v1/emails', rateLimiterUsingThirdParty, emailRouter);
+app.use('/api/v1/custom/emails', checkApiKey, customRedisRateLimiterTokenBucket, emailRouter);
+app.use('/api/v1/custom-v2/emails', customRedisRateLimiterSlidingWindow, emailRouter);
+
+app.use('/api/v1/third-party/emails', rateLimiterUsingThirdParty, emailRouter);
 
 app.use('/', (req, res) => {
   res.jsend.success({
