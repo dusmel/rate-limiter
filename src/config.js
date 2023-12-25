@@ -13,9 +13,6 @@ const loadEnvVariable = (envName) => {
 const config = {
   APP: {
     PORT: loadEnvVariable('PORT') || 8080
-  },
-  DB: {
-    URL: loadEnvVariable('MONGODB_URI')
   }
 };
 

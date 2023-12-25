@@ -1,0 +1,17 @@
+[
+  {
+    "sender": "john@example.com",
+    "subject": "Regarding your recent purchase",
+    "body": "Dear customer,\n\nThank you for your recent purchase. We hope you are enjoying our product. If you have any questions or need further assistance, please don't hesitate to contact us.\n\nBest regards,\nJohn"
+  },
+  {
+    "sender": "jane@example.com",
+    "subject": "Invitation to our annual conference",
+    "body": "Dear colleague,\n\nWe are pleased to invite you to our annual conference. The event will take place on [date] at [location]. We have an exciting lineup of speakers and networking opportunities. We hope to see you there!\n\nBest regards,\nJane"
+  },
+  {
+    "sender": "alex@example.com",
+    "subject": "Job opportunity at our company",
+    "body": "Dear candidate,\n\nWe are currently hiring for a [position] at our company. If you are interested in joining our team, please review the attached job description and submit your application by [deadline]. We look forward to hearing from you.\n\nBest regards,\nAlex"
+  }
+]

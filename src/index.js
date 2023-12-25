@@ -7,6 +7,8 @@ import jsend from 'jsend';
 import errorHandler from './middlewares/errorHandler.js';
 import config from './config.js';
 import logger from './helpers/logger.js';
+import emailRouter from './api/v1/email/email.router.js';
+import { rateLimiterUsingThirdParty } from './middlewares/rateLimiter.js';
 
 // Essential globals
 const app = express();
@@ -26,6 +28,9 @@ app.use(
   })
 );
 app.use(jsend.middleware);
+
+// use get emails router
+app.use('/api/v1/emails', rateLimiterUsingThirdParty, emailRouter);
 
 app.use('/', (req, res) => {
   res.jsend.success({
