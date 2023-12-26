@@ -4,13 +4,12 @@ import morgan from 'morgan';
 import cors from 'cors';
 import jsend from 'jsend';
 // import config from './config';
-import errorHandler from './middlewares/errorHandler.js';
 import config from './config.js';
 import logger from './helpers/logger.js';
 import emailRouter from './api/v1/email/email.router.js';
 import { rateLimiterUsingThirdParty } from './middlewares/rateLimiter.js';
 import { checkApiKey } from './middlewares/checkApi.js';
-import { customRedisRateLimiterTokenBucket } from './middlewares/customRateLimiter-TokenBucket.js';
+import { customRedisRateLimiterTokenBucket } from './middlewares/customRateLimiter/index.js';
 import { customRedisRateLimiterSlidingWindow } from './middlewares/customRedisRateLimiter-SlidingWindow.js';
 
 // Essential globals
@@ -48,7 +47,7 @@ app.listen(config.APP.PORT, () => {
 });
 
 // Initialize Global Error Handlers
-app.use(errorHandler);
+// app.use(errorHandler);
 process.on('unhandledRejection', (reason) => {
   throw reason;
 });
