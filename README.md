@@ -55,9 +55,25 @@ The numbers were made small for the sake of easy testing. But feel free to chang
 
 > PS: I will also mention that authentication was entirely mocked given that it is out of scope of this project.
 
+<br />
+
+**Using a very simple frontend to simulate requests [Link](https://github.com/dusmel/rate-limiter-simulator/tree/main)** 
 
 
-**Using a very simple frontend to simulate requests**
+
+This assumes that the backend is running on 4000.
+
+**Install**
+```bash
+git clone git@github.com:dusmel/rate-limiter-simulator.git
+cd rate-limiter-simulator
+pnpm install
+pnpm dev
+```
+
+
+https://github.com/dusmel/rate-limiter/assets/27511264/943e17eb-e0dc-4e0a-bbb8-7b6baaa1228d
+
 
 
 ## Design decisions
