@@ -14,28 +14,29 @@ This project is a simple implementation of an API rate limiter built with Node a
 
 ## Installation
 
-The following script should get you started right away. But with all scripts on the internet you should have a look first [link]()
+The following script should get you started right away. But with all scripts on the internet you should have a look first [link](https://gist.github.com/dusmel/b92b5ef3ee2d927f5aa9d37b37f3754b)
+
+This assumes that your redis-server is running. if you don't have redis installed ``` brew install redis``` should sort you out.
 
 Requirements: Git, Node and NPM, redis
 
 ```bash
+ curl -L https://gist.githubusercontent.com/dusmel/b92b5ef3ee2d927f5aa9d37b37f3754b/raw/dddea873a2cff3b1ebd55b99205e9615b16fba49/start-rater-limiter.sh -H "Cache-Control: no-cache, no-store, must-revalidate" | bash
 ```
 
 **Manual**
 
 ```bash
-git clone https://github.com/ollm/OpenComic.git
-cd rate-limiter
-cp .env.example .env
-pnpm install
-redis-server
-pnpm dev
+ git clone git@github.com:dusmel/rate-limiter.git 
+ cd rate-limiter 
+ cp .env.example .env 
+ pnpm install 
+ redis-server # you can do this in a separate tab
+ pnpm dev 
 ```
+And voila 🎉
 
 I use pnpm but you can use npm, yarn or anything really!
-
-**Build from docker hub**
-
 
 
 ## How to test
@@ -53,8 +54,6 @@ export const defaultSystemToken = 10;
 The numbers were made small for the sake of easy testing. But feel free to change them inside `src/constants/tokens.js`.
 
 > PS: I will also mention that authentication was entirely mocked given that it is out of scope of this project.
-
-
 
 
 
