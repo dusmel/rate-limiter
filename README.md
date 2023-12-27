@@ -44,6 +44,14 @@ I use pnpm but you can use npm, yarn or anything really!
 
 The main endpoint to test is `GET localhost:4000/api/v1/custom/emails`, if you try without an API KEY it will return an unauthorized response. You can get a mocked API_KEY in the `src/constants/apiKeys.js` file.
 
+**success**
+<img width="1144" alt="image" src="https://github.com/dusmel/rate-limiter/assets/27511264/b2740ffe-306d-40ef-99f4-a8d94b79e66b">
+
+**rejected**
+<img width="1146" alt="image" src="https://github.com/dusmel/rate-limiter/assets/27511264/4b13d716-5354-48d1-aa90-08a88f25c823">
+
+
+
 These are the default configuration
 ```js
 export const defaultTimeWindowToken = 4;
