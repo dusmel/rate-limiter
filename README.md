@@ -52,6 +52,11 @@ The main endpoint to test is `GET localhost:4000/api/v1/custom/emails`, if you t
 
 
 
+eg: in the header
+```env
+x-api-key: 0852b9b3-ee95774f
+```
+
 These are the default configuration
 ```js
 export const defaultTimeWindowToken = 4;

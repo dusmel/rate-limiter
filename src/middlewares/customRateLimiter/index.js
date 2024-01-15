@@ -2,8 +2,9 @@ import { createClient } from 'redis';
 import { timeWindowLimiter } from './timeWindow';
 import { monthlyRateLimiter } from './MonthlyRateLimit';
 import { systemRateLimiter } from './systemRateLimit';
+import config from '../../config.js';
 
-const redisClient = createClient();
+const redisClient = createClient({ url: config.APP.REDIS_URL });
 redisClient.on('error', (err) => console.error('>>>>>>> Redis Client Error', err));
 redisClient.on('connect', () => {
   console.log('>>>>>>>>>. Connected to Redis');

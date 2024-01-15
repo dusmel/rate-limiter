@@ -5,14 +5,15 @@ dotenvConfig();
 const loadEnvVariable = (envName) => {
   const env = process.env[envName];
   if (env == null) {
-    throw new Error(`Environment variable => ${envName} is undefined.`);
+    console.error(`Environment variable => ${envName} is undefined.`);
   }
   return env;
 };
 
 const config = {
   APP: {
-    PORT: loadEnvVariable('PORT') || 8080
+    PORT: loadEnvVariable('PORT') || 8080,
+    REDIS_URL: loadEnvVariable('REDIS_URL_DOCKER') || 'redis://localhost:6379'
   }
 };
 

@@ -1,7 +1,8 @@
 import dayjs from 'dayjs';
 import { createClient } from 'redis';
+import config from '../config';
 
-const redisClient = createClient();
+const redisClient = createClient({ url: config.APP.REDIS_URL });
 redisClient.on('error', (err) => console.error('>>>>>>> Redis Client Error', err));
 redisClient.on('connect', () => {
   console.log('>>>>>>>>>. Connected to Redis');

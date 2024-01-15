@@ -1,0 +1,29 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - 3001:3001
+    container_name: rate-limiter-frontend
+  api:
+    depends_on:
+      - redis
+    build: 
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: rate-limiter-api
+    environment:
+      REDIS_URL_DOCKER: 'redis://redis:6379'
+    ports:
+      - 4000:4000
+  redis:
+    image: redis:6.2-alpine
+    restart: unless-stopped
+    expose:
+      - 6379
+    command: redis-server --save 20 1 --loglevel warning
+    container_name: rate-limiter-redis
+    volumes: 
+      - cache:/data
+volumes:
+  cache:
+    driver: local

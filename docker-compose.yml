@@ -1,0 +1,24 @@
+services:
+  api:
+    depends_on:
+      - redis
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: rate-limiter-api
+    environment:
+      REDIS_URL: 'redis://redis:6379'
+    ports:
+      - 4000:4000
+  redis:
+    image: redis:6.2-alpine
+    restart: unless-stopped
+    expose:
+      - 6379
+    command: redis-server --save 20 1 --loglevel warning
+    container_name: rate-limiter-redis
+    volumes: 
+      - cache:/data
+volumes:
+  cache:
+    driver: local
