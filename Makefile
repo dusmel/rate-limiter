@@ -4,13 +4,13 @@ build-api: ## Build the development docker image.
 
 .PHONY: start-api
 start-api: ## Start the development docker container.
-	docker compose up -d 
+	 cp .env.example .env  && docker compose up -d 
 
 .PHONY: build-full
 build-full: ## Build the development docker image.
-	docker compose build -f docker-compose-full.yml
+	docker compose -f docker-compose-full.yml build 
 
 .PHONY: start-full
 start-full: ## Start the development docker container.
-	docker compose up -d -f docker-compose-full.yml
+	docker compose -f docker-compose-full.yml up -d 
 

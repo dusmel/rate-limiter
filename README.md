@@ -14,9 +14,30 @@ This project is a simple implementation of an API rate limiter built with Node a
 
 ## Installation
 
-The following script should get you started right away. But with all scripts on the internet you should have a look first [link](https://gist.github.com/dusmel/b92b5ef3ee2d927f5aa9d37b37f3754b)
+**With Docker**
 
-This assumes that your redis-server is running. if you don't have redis installed ``` brew install redis``` should sort you out.
+- **Script**
+The following script should get you started right away. But with all scripts on the internet you should have a look first [link](https://gist.github.com/dusmel/373d486a3041a5ad6f0bbaed36782f71)
+
+```bash
+ curl -L https://gist.githubusercontent.com/dusmel/373d486a3041a5ad6f0bbaed36782f71/raw/f00520b1ec7ad8d213d37af41ffae338e70f4cd8/rate-limiter-stater.sh -H "Cache-Control: no-cache, no-store, must-revalidate" | bash
+```
+
+- **Build and start yourself**
+
+```bash
+git clone git@github.com:dusmel/rate-limiter.git 
+make build-api
+make start-api
+```
+
+<br />
+
+**Build and run with node**
+
+The following script should get you started but assumes that you have, git and node ( preferably >= 18) installed. You can have a look  [link](https://gist.github.com/dusmel/b92b5ef3ee2d927f5aa9d37b37f3754b)
+
+This also assumes that your redis-server is running. if you don't have redis installed ``` brew install redis``` should sort you out.
 
 Requirements: Git, Node and NPM, redis
 
@@ -77,6 +98,14 @@ The numbers were made small for the sake of easy testing. But feel free to chang
 This assumes that the backend is running on 4000.
 
 **Install**
+
+You can use the above script to clone, build and start everything you need to test:
+```bash
+curl -L https://gist.githubusercontent.com/dusmel/373d486a3041a5ad6f0bbaed36782f71/raw/f00520b1ec7ad8d213d37af41ffae338e70f4cd8/rate-limiter-stater.sh -H "Cache-Control: no-cache, no-store, must-revalidate" | bash
+```
+
+**Manual**
+
 ```bash
 git clone git@github.com:dusmel/rate-limiter-simulator.git
 cd rate-limiter-simulator
